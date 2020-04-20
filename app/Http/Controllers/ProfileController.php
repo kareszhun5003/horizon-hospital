@@ -30,4 +30,12 @@ class ProfileController extends Controller
 
     return view('profile', compact('name', 'email', 'specialty', 'languages', 'education_at_uni', 'education_at_quali', 'img'));
   }
+
+  public function myProfile() {
+
+    $user_id = auth()->user()->id;
+    $doctor = Doctor::find($user_id);
+
+    return $doctor;
+  }
 }

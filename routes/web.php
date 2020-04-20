@@ -35,6 +35,7 @@ Route::get('public/img/{name}', function ($name) {
 
 Auth::routes();
 
+Route::get('/myprofile', 'ProfileController@myProfile');
 Route::post('/profile', 'ProfileController@show');
 Route::get('/profile', function(){
   return abort(404);
