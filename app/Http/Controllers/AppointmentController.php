@@ -15,9 +15,13 @@ class AppointmentController extends Controller
 
     $appointments = Appointment::all();
 
-    return view('appointment',
-      ['appointments' => $appointments,
-    ]);
+    if(\Auth::check() && auth()->user()->type == 'doctor'){
+      return view('appointment',
+        ['appointments' => $appointments,
+      ]);
+    } else {
+      abort(404);
+    }
   }
 
   public function destroy(Request $request) {

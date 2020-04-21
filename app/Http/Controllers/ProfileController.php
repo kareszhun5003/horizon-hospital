@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-
+  /*
   public function show(Request $request) {
 
     $doctors = new Doctor();
@@ -31,11 +31,20 @@ class ProfileController extends Controller
     return view('profile', compact('name', 'email', 'specialty', 'languages', 'education_at_uni', 'education_at_quali', 'img'));
   }
 
+  */
+
   public function myProfile() {
 
-    $user_id = auth()->user()->id;
-    $doctor = Doctor::find($user_id);
+    if(\Auth::check() && auth()->user()->type == 'doctor') {
+      $user = auth()->user();
+      $doctor = Doctor::find($user->id);
 
-    return $doctor;
+
+      return view('profile',
+        ['profile' => $doctor,
+      ]);
+    } else {
+      abort(404);
+    }
   }
 }

@@ -58,21 +58,8 @@
 
                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                  @if(Auth::user()->type == 'doctor')
-                   <form action="/profile" method="POST">
-                     {{csrf_field()}}
-                     <input type="hidden" name="name" value="{{ Auth::user()->doctor->name }}">
-                     <input type="hidden" name="email" value="{{ Auth::user()->doctor->email }}">
-                     <input type="hidden" name="specialty" value="{{ Auth::user()->doctor->specialty }}">
-                     <input type="hidden" name="languages" value="{{ Auth::user()->doctor->languages }}">
-                     <input type="hidden" name="education_at_uni" value="{{ Auth::user()->doctor->education_at_uni }}">
-                     <input type="hidden" name="education_at_quali" value="{{ Auth::user()->doctor->education_at_quali }}">
-                     <input type="hidden" name="img" value="{{ Auth::user()->doctor->img }}">
-
-                     <button type="submit" class="dropdown-item">
-                       <img src="{{ URL::to('/') }}/img/doctors/{{ Auth::user()->doctor->img }}" width="50px" class="rounded-circle">
-                        Profile
-                     </button>
-                   </form>
+                   <a class="dropdown-item" href="/profile"><img src="{{ URL::to('/') }}/img/doctors/{{ Auth::user()->doctor->img }}" width="50px" class="rounded-circle">
+                    Profile</a>
                  @endif()
                  <a class="dropdown-item" href="{{ route('logout') }}"
                  onclick="event.preventDefault();

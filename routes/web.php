@@ -35,12 +35,13 @@ Route::get('public/img/{name}', function ($name) {
 
 Auth::routes();
 
-Route::get('/myprofile', 'ProfileController@myProfile');
+Route::get('/profile', 'ProfileController@myProfile');
+/*
 Route::post('/profile', 'ProfileController@show');
 Route::get('/profile', function(){
   return abort(404);
 });
-
+*/
 Route::get('/appointments', 'AppointmentController@index');
 Route::post('/appointments', 'AppointmentController@store');
 Route::delete('/appointments', 'AppointmentController@destroy');

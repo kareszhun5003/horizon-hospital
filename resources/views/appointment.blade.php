@@ -7,7 +7,6 @@
 
 @section('content')
 
-  @if(Auth::User() && Auth::User()->type == 'doctor')
   <header class="doc-header"></header>
   <div class="container-fluid padding">
     <div class="row welcome text-center">
@@ -52,9 +51,6 @@
   @endforeach
   </div>
   <br>
-@else
-<script>window.location = "/404";</script>
-@endif
 
 <script>
   $(document).ready(function(){
