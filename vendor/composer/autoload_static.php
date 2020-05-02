@@ -493,6 +493,7 @@ class ComposerStaticInit2314a04a03de1b6853f921d11e62036c
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Services\\SocialGoogleAccountService' => __DIR__ . '/../..' . '/app/Services/SocialGoogleAccountService.php',
         'App\\SocialGoogleAccount' => __DIR__ . '/../..' . '/app/SocialGoogleAccount.php',
         'App\\Symptom' => __DIR__ . '/../..' . '/app/Symptom.php',
         'App\\SymptomDisease' => __DIR__ . '/../..' . '/app/SymptomDisease.php',
