@@ -32,7 +32,7 @@ class UserController extends Controller
         $user->avatar = $filename;
         $user->save();
 
-        return view('auth.profile', array('user' => Auth::user()));
+        return view('home', array('user' => Auth::user()));
       }
     }
 }
