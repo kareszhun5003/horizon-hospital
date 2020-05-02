@@ -40,7 +40,7 @@ class DoctorProfileController extends Controller
       $doctor = Doctor::find($user->id);
 
 
-      return view('doctors.DoctorProfile',
+      return view('doctors.doctorProfile',
         ['doctorProfile' => $doctor,
       ]);
     } else {
