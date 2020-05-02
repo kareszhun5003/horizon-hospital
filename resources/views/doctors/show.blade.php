@@ -3,10 +3,9 @@
 @section('navbar')
   <link rel="icon" href="../img/new-logo.png">
   <style>
-  .languages{
-    word-spacing: 99999px;
+  pre{
+    color: white;
   }
-
   .back{
     left: 32vw;
   }
@@ -17,7 +16,71 @@
     color: black;
     cursor: default;
   }
+
+  @media only screen and (min-width:1024px) and (max-width: 1440px){
+    *{
+      max-width: 100%;
+    }
+
+    label{
+      position: relative;
+      top: 100px !important;
+    }
+  }
+
+  @media only screen and (min-width:768px) and (max-width: 1024px){
+    *{
+      max-width: 100%;
+    }
+
+    pre{
+      font-size: 10px;
+    }
+  }
+
+  @media only screen and (min-width:425px) and (max-width: 768px){
+    *{
+      max-width: 100%;
+    }
+
+    .box{
+      position: relative;
+      left: 16px;
+    }
+
+    label{
+      position: relative;
+      top: 100px !important;
+    }
+  }
+
+  @media only screen and (min-width:375px) and (max-width: 425px){
+    .box{
+      max-width: 100%;
+    }
+
+    pre{
+      font-size: 10px;
+    }
+  }
+
+  @media only screen and (min-width:320px) and (max-width: 375px){
+    .box{
+      max-width: 100%;
+    }
+
+    pre{
+      font-size: 8px;
+    }
+
+    label{
+      position: relative;
+      top: 100px !important;
+    }
+  }
+
   </style>
+
   <title>{{ $doctor->name }}</title>
 
   <script src="/js/jquery.datetimepicker.full.min.js"></script>
@@ -35,20 +98,21 @@
         <h2>{{ $doctor->specialty }}</h2>
         <h5>{{ $doctor->email }}</h5>
         <h4>Languages spoken:</h4>
-        <p class="languages prof">{{ $doctor->languages }}</p>
+        <pre class="languages prof">{{ $doctor->languages }}</pre>
         <h4>Education:</h4>
-        <p class="prof">{{ $doctor->education_at_uni }}</p>
-        <p class="prof">{{ $doctor->education_at_quali }}</p>
+        <pre class="prof">{{ $doctor->education_at_uni }}</pre>
+        <pre class="prof">{{ $doctor->education_at_quali }}</pre>
         <div class="buttons-show inline-block">
         <a class="btn btn-light" href="/doctors">Back to all Doctors</a>
 
-        @guest
-          <a class="btn btn-light app-but" href="/login">Book an Appointment</a>
-        @else
+      @if(Auth::guest())
+        <a class="btn btn-light app-but" href="/login">Book an Appointment</a>
+      @elseif(Auth::user()->type == "doctor")
+
+      @elseif(Auth::user() && Auth::user()->type != "doctor")
           <button type="button" class="btn btn-light app-but" data-toggle="modal" data-target="#app-modal">
               Book an Appointment
           </button>
-
 
         <div class="modal fade" id="app-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -82,7 +146,7 @@
             </div>
           </div>
         </div>
-      @endguest
+      @endif
       </div>
     </div>
   </div>
@@ -108,11 +172,22 @@
     yearEnd: new Date().getFullYear() + 2,
     format: 'Y.m.d.'
   })
-  var msg = '{{Session::get('alert')}}';
+  var msg_succ = '{{Session::get('alert-success')}}';
+  var msg_error = '{{Session::get('alert-error')}}';
   var exist = '{{Session::has('alert')}}';
-  if(exist){
-    alert(msg);
-  }
+  if('{{Session::has('alert-error')}}'){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: msg_error,
+    })
+  } if('{{Session::has('alert-success')}}'){
+  Swal.fire({
+icon: 'success',
+title: 'Hurray!',
+text: msg_succ,
+})
+}
 
   $('#form2 input[type=text]').on('change invalid', function() {
     var textfield = $(this).get(0);

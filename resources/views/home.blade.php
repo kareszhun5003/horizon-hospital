@@ -33,26 +33,36 @@
   </a>
   </div>
   </header>
+  <style>
+    span{
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
 @stop
 
 @section('content')
 
   <div class="container-fluid padding">
-    <br>
-    <br>
-      <div class="row text-center padding">
-          <div class="col-xs-12 col-sm-6 col-md-6">
-              <a style="color: inherit; text-decoration: none;"href="/sympton-checker"><img class="robby" src="/img/bot-gif.gif" width="400px" alt="">
-              <img class="robby-text" src="/img/text-bubble.png" width="200px" alt=""></a>
+      <div class="row">
+          <div class="col-md-12 col-lg-7">
+            <br>
+              <h1>Symptom Checker</h1>
+              <hr>
+              <p>You can find a Symptom Checker on our <span>Symptom Checker</span> tab.</p>
+              <p>This Application can show you the possible <span>Diseases</span> from your Symptoms. All you have to do is just pick your <span>Symptoms</span>, and let it do the rest.</p>
+              <h3 style="font-weight: bold">Note: <u style="font-size:16px">Our Symptom Checker doesn't replace visiting a doctor! Also, it doesn't handle the type of cancers to avoid unnecessary panic. </u></h3>
+              <br />
+              <h1>COVID-19 Informations</h1>
+              <hr>
+              <p>Under the <span>Symptom Checker</span> tab, if you scroll down, you can see a <span>COVID-19</span> part, where you can check the statistics of COVID-19 Virus.</p>
+              <p>It displays <span>Hungarian</span>, and <span>Global</span> data from the whole Earth.</p>
           </div>
-          <div class="col-xs-12 col-sm-6 col-md-6 robot">
-              <i class="fas fa-robot robby-icon"></i>
-              <h3 class="display-4">Meet Robby!</h3>
-              <p>Feel free to try him! All you have to do is just give him your symptons and let him do the rest.</p>
+          <div class="col-lg-5">
+              <img src="img/sympton-header.jpg" height="400px" class="img-fluid" />
           </div>
       </div>
   </div>
-
 
 <div class="parallax"></div>
 <div class="quality_area">
@@ -81,7 +91,7 @@
           <div class="icon">
             <i class="far fa-calendar"></i>
           </div>
-          <h3>Appointments!</h3>
+          <h3>Appointments</h3>
           <p>After a quick registration, you can book an appointment with any of our doctors, by 1 click.</p>
         </div>
       </div>

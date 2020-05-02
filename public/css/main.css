@@ -1,3 +1,13 @@
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.doc-card {
+  width: 160px; height: auto;
+}
+
 .navbar-brand {
     line-height: 50px;
     height: 50px;
@@ -11,15 +21,9 @@
     word-spacing: 9999999px;
 }
 
-
-.robby-text{
-  position: relative;
-  bottom: 90px;
-  right: 200px;
-}
-
-.robby-icon{
-  font-size: 450%;
+.img-fluid {
+  border: 3px solid black;
+  margin-top: 40px;
 }
 
 .quality_area {
@@ -209,6 +213,13 @@ html, body {
     height: 500px;
 }
 
+.symptom-header{
+    background: url(../img/sympton-header.jpg);
+    background-size: cover;
+    background-position: top;
+    height: 500px;
+}
+
 .doctors > a{
   margin: 2px;
   width: 190px;
@@ -229,7 +240,7 @@ html, body {
 
 .carousel-inner img {
     width: 100%;
-    height: 45vw;
+    height: 46.5vw;
 }
 
 .carousel-caption {
@@ -316,18 +327,6 @@ hr.light-100 {
      top: 2vw;
    }
 
-  .robby{
-    position: relative;
-    right: 50px;
-    top: 100px;
-  }
-
-  .robby-text{
-    position: relative;
-    left: 60px;
-    bottom: 235px;
-  }
-
 .carousel-inner img {
   height: 60vw;
 }
@@ -354,9 +353,32 @@ hr.light-100 {
 }
 }
 @media (max-width: 576px) {
-  .doc-header{
-    height: 250px;
+
+  .doctors-c{
+    width: 175px !important;
   }
+
+  .doc-title{
+    font-size: 150%;
+  }
+
+  .img-fluid {
+    margin: 0;
+    height: 200px;
+  }
+
+.grid figure {
+  position: relative;
+  right: 17.5px;
+}
+
+.doc-header{
+    height: 250px;
+}
+
+.symptom-header{
+    height: 250px;
+}
 
 .carousel-caption {
     top: 20%;
@@ -382,4 +404,199 @@ footer {
     font-size: 80%;
 }
 
+}
+
+
+/* COVID TABS */
+
+
+nav > div a.nav-item.nav-link
+{
+    border: none;
+    padding: 18px 25px;
+    color: black;
+    background: white;
+    border-radius:0;
+}
+
+nav > div a.nav-item.nav-link.active:after
+{
+    content: "";
+    position: relative;
+    bottom: -60px;
+    left: -10%;
+    border: 15px solid transparent;
+    border-top-color: #FFA600 ;
+}
+section .tab-content{
+    background: #fdfdfd;
+    line-height: 25px;
+    border-top:7px solid #292828;
+    padding:30px 25px;
+}
+.picker .tab-content{
+    background-color: #FFEFD3;
+}
+
+nav > div a.nav-item.nav-link.active
+{
+    border: none;
+    background: #292828;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+}
+
+.bg-bad{
+  background-color: #292828 ;
+}
+
+/* Loader design */
+
+#loader {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(0,0,0,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+
+/* Symptom checker */
+
+.pointer-cursor{
+  cursor: pointer;
+}
+
+.centered {
+text-align: center;
+
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.uppercase-cap {
+  text-transform: capitalize;
+  }
+
+
+
+/* Common style */
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin-left: 22px;
+  margin-top: 10px;
+	width: 320px;
+  height: 200px;
+	background: #3085a3;
+	text-align: center;
+  border:1px solid black;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.8;
+}
+
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+figure.effect-ruby {
+	background-color: #17819c;
+}
+
+figure.effect-ruby img {
+	opacity: 0.7;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: scale(1.15);
+	transform: scale(1.15);
+}
+
+figure.effect-ruby:hover img {
+	opacity: 0.5;
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+figure.effect-ruby h2 {
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,-10px,0);
+	transform: translate3d(0,-10px,0);
+}
+
+figure.effect-ruby p {
+	margin: 1em 0 0;
+	padding: 3em;
+	border: 1px solid #fff;
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+	-webkit-transform: translate3d(0,150px,0) scale(1.1);
+	transform: translate3d(0,150px,0) scale(1.1);
+}
+
+figure.effect-ruby:hover h2 {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+figure.effect-ruby:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,-75px,0) scale(1);
+	transform: translate3d(0,-75px,0) scale(1);
+}
+
+@media screen and (max-width: 50em) {
+	.content {
+		padding: 0 10px;
+		text-align: center;
+	}
+	.grid figure {
+		display: inline-block;
+		float: none;
+		margin: 10px auto;
+		width: 100%;
+	}
 }

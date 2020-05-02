@@ -10,6 +10,7 @@
     background-size: cover;
     background-position: top;
     min-height: 500px;
+    color: white
   }
   .card{
     background: rgba(0, 0, 0, 0.5);
@@ -65,6 +66,8 @@
                                 <button type="submit" class="btn btn-light rounded-pill">
                                     {{ __('Login') }}
                                 </button>
+                                OR
+                                <a href="{{url('/redirect')}}" class="btn btn-light rounded-pill"><i class="fab fa-google"></i> Login with Google</a>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
@@ -72,6 +75,7 @@
                                     </a>
                                 @endif
                             </div>
+
                         </div>
                     </form>
                 </div>

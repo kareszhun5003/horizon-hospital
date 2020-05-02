@@ -9,7 +9,7 @@ class DoctorController extends Controller
 {
     public function index() {
 
-      $doctors = Doctor::all();
+      $doctors = \DB::table('doctors')->get();
 
       return view('doctors.index',
         ['doctors' => $doctors,

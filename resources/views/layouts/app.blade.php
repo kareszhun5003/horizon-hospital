@@ -7,6 +7,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   @yield('css')
@@ -15,6 +17,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script><script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+  <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+  <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
 </head>
 <body>
   <div id="app">
@@ -30,7 +35,7 @@
                   <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/sympton-checker"><i class="fas fa-stethoscope"></i> Sympton Checker</a>
+                    <a class="nav-link" href="/symptom-checker"><i class="fas fa-stethoscope"></i> Symptom Checker</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/doctors"><i class="fas fa-user-md"></i> Doctors</a>
@@ -52,15 +57,25 @@
            @endif
           @else
              <li class="nav-item dropdown">
-               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+               <a style="position: relative; padding-left:50px;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                 <img class="rounded-circle" src="{{ URL::to('/') }}/img/uploads/avatars/{{ Auth::user()->avatar }}" style="width: 40px; height: 40px;"/>
                  {{ Auth::user()->name }} <span class="caret"></span>
                </a>
 
                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                  @if(Auth::user()->type == 'doctor')
-                   <a class="dropdown-item" href="/profile"><img src="{{ URL::to('/') }}/img/doctors/{{ Auth::user()->doctor->img }}" width="50px" class="rounded-circle">
-                    Profile</a>
+                   <a class="dropdown-item" href="/doctorProfile"><i class="fas fa-user-md"></i>
+                    Doctor Profile</a>
+                 @elseif(Auth::user()->type == 'admin')
+                    <a class="dropdown-item" href="/diseases">
+                      Diseases
+                    </a>
+                    <a class="dropdown-item" href="/symptoms">
+                      Symptoms
+                    </a>
                  @endif()
+                 <a class="dropdown-item" href="/profile"><i class="fas fa-user"></i>
+                   Profile</a>
                  <a class="dropdown-item" href="{{ route('logout') }}"
                  onclick="event.preventDefault();
                  document.getElementById('logout-form').submit();">

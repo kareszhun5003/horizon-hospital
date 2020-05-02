@@ -62,10 +62,10 @@ class AppointmentController extends Controller
     $contains = Str::contains($data, $appointment->date);
 
     if($contains == 1){
-      return redirect()->back()->with('alert', 'Appointment already exists!');
+      return redirect()->back()->with('alert-error', 'Appointment has been already taken!');
     } else {
       $appointment->save();
-      return redirect()->back()->with('alert', 'Appointment added successfully!');
+      return redirect()->back()->with('alert-success', 'Appointment added successfully!');
     }
   }
 }

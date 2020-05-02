@@ -2,7 +2,64 @@
 
 @section('navbar')
   <title>Appointments</title>
+  <style>
+    @media only screen and (min-width:1024px) and (max-width: 1440px){
+      *{
+        max-width: 100%;
+      }
+    }
 
+    @media only screen and (min-width:768px) and (max-width: 1024px){
+      *{
+        max-width: 100%;
+      }
+    }
+
+    @media only screen and (min-width:425px) and (max-width: 768px){
+      *{
+        max-width: 100%;
+      }
+
+      h3, h5{
+        font-size: 18px;
+      }
+
+      .btn{
+        position: relative;
+        left: 25px !important;
+      }
+    }
+
+    @media only screen and (min-width:375px) and (max-width: 425px){
+      *{
+        max-width: 100%;
+      }
+
+      h3, h5{
+        font-size: 16px;
+      }
+
+      .btn{
+        position: relative;
+        left: 25px !important;
+      }
+    }
+
+    @media only screen and (min-width:320px) and (max-width: 375px){
+      *{
+        max-width: 100%;
+      }
+
+      h3, h5{
+        font-size: 16px;
+      }
+
+      .btn{
+        position: relative;
+        left: 25px !important;
+      }
+    }
+  </style>
 @stop
 
 @section('content')
@@ -27,8 +84,8 @@
         @if($appointment->doctor->id == Auth::User()->doctor->id)
           <ul class="list-group list-group-flush">
             <li class="list-group-item d-flex justify-content-between align-items-center">
-              <h3>{{ $appointment->user->name }}</h3>
               <h5>{{ $appointment->date }}</h5>
+              <h3>{{ $appointment->user->name }}</h3>
               <form class="delete_form" action="/appointments" method="POST">
                 {{csrf_field()}}
                 {{ method_field('DELETE') }}
@@ -53,11 +110,22 @@
   <br>
 
 <script>
+  var msg = '{{Session::get('alert')}}';
+
   $(document).ready(function(){
     $('.delete_form').on('submit', function(){
       if(confirm("Are you sure you want to delete it?")){
+        Swal.fire({
+          icon: 'success',
+          title: 'Hurray!',
+          text: msg,
+        })
         return true;
       } else {
+        Swal.fire({
+          icon: 'error',
+          text: "Appointment hasn't been deleted.",
+        })
         return false;
       }
     });

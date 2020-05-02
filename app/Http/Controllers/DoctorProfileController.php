@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Profile;
+use App\DoctorProfile;
 use App\Doctor;
 use Illuminate\Http\Request;
 
-class ProfileController extends Controller
+class DoctorProfileController extends Controller
 {
   /*
   public function show(Request $request) {
@@ -40,8 +40,8 @@ class ProfileController extends Controller
       $doctor = Doctor::find($user->id);
 
 
-      return view('profile',
-        ['profile' => $doctor,
+      return view('doctors.DoctorProfile',
+        ['doctorProfile' => $doctor,
       ]);
     } else {
       abort(404);
