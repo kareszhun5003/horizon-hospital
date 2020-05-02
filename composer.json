@@ -16,7 +16,8 @@
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.2",
-        "laravelcollective/html": "~5.0"
+        "laravelcollective/html": "~5.0",
+        "gd": "*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
@@ -63,6 +64,5 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
-    },
-    "gd": "*",
+    }
 }
