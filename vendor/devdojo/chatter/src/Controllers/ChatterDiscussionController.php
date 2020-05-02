@@ -80,7 +80,7 @@ class ChatterDiscussionController extends Controller
         Event::dispatch(new ChatterBeforeNewDiscussion($request, $validator));
         if (function_exists('chatter_before_new_discussion')) {
             chatter_before_new_discussion($request, $validator);
-        }
+        } 
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
