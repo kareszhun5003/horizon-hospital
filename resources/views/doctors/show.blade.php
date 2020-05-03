@@ -17,6 +17,17 @@
     cursor: default;
   }
 
+  @media only screen and (min-width:1440px) and (max-width: 1920px){
+    *{
+      max-width: 100%;
+    }
+
+    label{
+      position: relative;
+      top: 100px !important;
+    }
+  }
+
   @media only screen and (min-width:1024px) and (max-width: 1440px){
     *{
       max-width: 100%;

@@ -18,7 +18,7 @@
       cursor: pointer;
     }
 
-    @media only screen and (min-width:375px) and (max-width: 858px){
+    @media only screen and (min-width:375px) and (max-width: 768px){
       h4{
         font-size: 12px;
       }
@@ -29,10 +29,20 @@
         position: relative;
         right: 40px !important;
         font-size: 12px;
+      }
+      .dropdown-menu{
+        position: relative;
+        right: 1px !important;
+        max-width: 125% !important;
+      }
+      .dropdown-item{
+        position: relative;
+        right: 22px;
+        font-size: 14px;
       }
     }
 
-    @media only screen and (min-width:320px) and (max-width: 858px){
+    @media only screen and (min-width:375px) and (max-width: 425px){
       h4{
         font-size: 12px;
       }
@@ -43,6 +53,38 @@
         position: relative;
         right: 40px !important;
         font-size: 12px;
+      }
+      .dropdown-menu{
+        position: relative;
+        right: 1px !important;
+        max-width: 125% !important;
+      }
+      .dropdown-item{
+        position: relative;
+        right: 22px;
+        font-size: 10px;
+      }
+    }
+
+    @media only screen and (min-width:320px) and (max-width: 375px){
+      h4{
+        font-size: 12px;
+      }
+      span{
+        font-size: 14px;
+      }
+      .symp-list{
+        position: relative;
+        right: 40px !important;
+        font-size: 12px;
+      }
+      .dropdown-menu{
+        max-width: 112% !important;
+      }
+      .dropdown-item{
+        position: relative;
+        right: 22px;
+        font-size: 10px;
       }
     }
 
@@ -236,7 +278,7 @@
 	                </div>
 	            </div>
 	        </div>
-            <p style="font-size: 14px">*If you see NO DATA, please wait some minutes and try again.</p>
+            <p style="font-size: 14px">*If you see NO DATA, please wait for some minutes and try again.</p>
 	        </section>
 	</div>
 

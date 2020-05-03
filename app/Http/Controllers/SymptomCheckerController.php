@@ -29,18 +29,15 @@ class SymptomCheckerController extends Controller
 
 		$exactMatch = [];
 
-		//Végig megy az összes betegségen
 		foreach ($diseases as $key => $disease) {
 
-			//Minden betegségbe belekéri a tüneteket
 			$symptoms = $disease->Symptoms;
 			$symptomsCount = count($symptoms);
 
-			$correspondingSymptomCount = 0;//Ebbe fogja számolni hogy hány tunet egyezik az adott betegséggel
+			$correspondingSymptomCount = 0;
 
-			//végig megy az adott betegséghez tartozo tuneteken
 			foreach ($symptoms as $symptom) {
-				//Végig megy az összes felhasználó által választott betegségen
+
 				foreach ($pickedSymptoms as $pickedSymptom) {
 					if ($symptom['id'] == $pickedSymptom) {
 						$correspondingSymptomCount++;
@@ -49,7 +46,6 @@ class SymptomCheckerController extends Controller
 			}
 			$disease['correspondingSymptomCount'] = $correspondingSymptomCount;
 
-			//Eldobja amikre 0%-os találat van
 			if ($symptomsCount == 0 || $correspondingSymptomCount == 0) {
 				$disease['diseaseConcord'] = 0;
 			}else{
